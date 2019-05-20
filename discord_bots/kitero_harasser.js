@@ -7,13 +7,17 @@ const client = new Discord.Client();
 client.on('ready', () => {
     console.log('Bot is now connected');
     const channel_name = "test";
-    client.channels.find(x => x.name === channel_name).send('Hello I\'m now connected to ' + channel_name);
+    client.channels.find(x => x.name === channel_name).send("Hello I\'m now connected to server " + channel_name);
 });
 
 client.on('message', msg => {
     if (msg.content === "ping kitero") {
-        msg.reply("YOU HAVE POKED KITERO !!");
+        msg.reply("YOU POKED KITERO !!");
     }
+    if (msg.content === "!test") {
+        msg.channel.send(`Hello ${msg.author}`);
+    }
+    console.log(msg);
 });
 
 client.login(token);
