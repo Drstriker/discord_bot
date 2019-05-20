@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "kitero_harasser": "node discord_bot/kitero_harasser.js"
+    "kitero_harasser": "node discord_bots/kitero_harasser.js"
   },
   "repository": {
     "type": "git",
