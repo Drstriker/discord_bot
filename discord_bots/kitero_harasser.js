@@ -12,9 +12,13 @@ client.on('message', msg => {
     const args = msg.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    user = msg.mentions.users.first();
-    if (msg.content === `poke ` + user) {
-        msg.channel.send(`${msg.author} POKED ` + user + ` !!`);
+    user_poked = msg.mentions.users.first();
+    if (msg.content === `poke ` + user_poked) {
+        if (msg.content === `poke <@579990549461729280>`) {
+            msg.channel.send(`${msg.author} POKED ME !!`);
+        }
+        else
+            msg.channel.send(`${msg.author} POKED ` + user_poked + ` !!`);
     }
     if (msg.content === "!authortest") {
         msg.channel.send(`Hello ${msg.author}`);
