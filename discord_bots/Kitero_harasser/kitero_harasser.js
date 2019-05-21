@@ -16,6 +16,8 @@ bot.on('message', async msg => {
     let cmd = msgArray[0];
     let args = msgArray.slice(1).join(" ");
     user_mention = msg.mentions.users.first();
+    let logschannel = msg.guild.channels.find(`name`, "logs");
+    let reportschannel = msg.guild.channels.find(`name`, "reports");
 
     if (cmd === `${prefix}botinfo`) {
         //msg.author.lastMessage.delete();
@@ -58,11 +60,9 @@ bot.on('message', async msg => {
         .addField("At", msg.createdAt)
         .addField("Reason", reason);
 
-        let reportschannel = msg.guild.channels.find(`name`, "reports");
         msg.delete().catch(O_o=>{});
         msg.channel.send(`${msg.author} Made a Report Ticket, your ticket will be examined by Admins`);
         reportschannel.send(reportEmbed);
-        return;
     }
     if (cmd === `${prefix}clear`) {
         let default_number = 99;
@@ -77,6 +77,10 @@ bot.on('message', async msg => {
             });
     }
     if (msg.content === `${prefix}poke ` + user_mention) {
+        logschannel.send(`${msg.author} sent message :
+        "${msg.author.lastMessage}"
+        IN Channel ${msg.channel}
+        AT [${msg.createdAt}]`);        
         msg.author.lastMessage.delete();
         if (msg.content === `${prefix}poke <@579990549461729280>`) {
             msg.channel.send(`${msg.author} POKED ME !!`);
@@ -85,21 +89,23 @@ bot.on('message', async msg => {
             msg.channel.send(`${msg.author} POKED ` + user_mention + ` !!`);
     }
     if (cmd == `${prefix}join`) {
-        // Only try to join the sender's voice channel if they are in one themselves
         if (msg.member.voiceChannel) {
-            const connection = await msg.member.voiceChannel.join();
+        msg.member.voiceChannel.join();
         }
         else
             msg.reply('You need be in a voice channel');
-        //msg.guild.voiceConnection.
     }
     if (cmd == `${prefix}leave`) {
         msg.member.voiceChannel.leave();
     }
     if (cmd == `${prefix}play`) {
-        connection.play(ytdl(msgArray[1], {filter: 'audioonly'}));
+        msg.channel.voic.play(ytdl(msgArray[1], {filter: 'audioonly'}));
     }
     if (cmd === `${prefix}say`) {
+        logschannel.send(`${msg.author} sent message :
+        "${msg.author.lastMessage}"
+        IN Channel ${msg.channel}
+        AT [${msg.createdAt}]`)
         msg.author.lastMessage.delete();
         msg.channel.send(args);
     }
