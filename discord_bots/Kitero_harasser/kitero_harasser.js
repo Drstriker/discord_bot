@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const config = require("./kitero_harasser.config.json");
+const ytdl = require ("ytdl-core");
 const bot = new Discord.Client();
 
 bot.on('ready', () => {
@@ -82,6 +83,21 @@ bot.on('message', async msg => {
         }
         else
             msg.channel.send(`${msg.author} POKED ` + user_mention + ` !!`);
+    }
+    if (cmd == `${prefix}join`) {
+        // Only try to join the sender's voice channel if they are in one themselves
+        if (msg.member.voiceChannel) {
+            const connection = await msg.member.voiceChannel.join();
+        }
+        else
+            msg.reply('You need be in a voice channel');
+        //msg.guild.voiceConnection.
+    }
+    if (cmd == `${prefix}leave`) {
+        msg.member.voiceChannel.leave();
+    }
+    if (cmd == `${prefix}play`) {
+        connection.play(ytdl(msgArray[1], {filter: 'audioonly'}));
     }
     if (cmd === `${prefix}say`) {
         msg.author.lastMessage.delete();
