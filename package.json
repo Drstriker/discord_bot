@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon discord_bots/Kitero_harasser/kitero_harasser.js"
+    "start_old": "nodemon discord_bots/Kitero_harasser_old/kitero_harasser.js",
+    "start_new": "nodemon discord_bots/Kitero_harasser_new/kitero_harasser.ts"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "ytdl-core": "^0.29.2"
   },
   "devDependencies": {
-    "nodemon": "^1.19.0"
+    "nodemon": "^1.19.0",
+    "typescript": "^3.4.5"
   }
 }
