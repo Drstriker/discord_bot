@@ -18,16 +18,16 @@ fs.readdir(`./discord_bots/Kitero_harasser/commands`, (err, files) => {
     
     jsfiles.forEach((f, i) => {
         var cmds = require(`./commands/${f}`);
-        console.log(`Command file ${f} successfully loaded`);
+        console.log(`Command file ${f} loading...`);
         bot.commands.set(cmds.config.command, cmds);
     })
+    console.log('All commands successfully loaded');
+    console.log('Bot is ready to connect');
 });
 
 bot.on('ready', () => {
     console.log('Bot is now connected');
     bot.user.setActivity("Faire chier Kitero", {type: "PLAYING"});
-    const channel_name = "test";
-    //client.channels.find(x => x.name === channel_name).send("Hello I\'m now connected to server " + channel_name);
 });
 
 bot.on('message', async msg => {
