@@ -3,8 +3,9 @@ const config = require("./kitero_harasser.config.json");
 const fs = require('fs');
 const bot = new Discord.Client();
 
-
 bot.commands = new Discord.Collection();
+
+bot.login(config.token);
 
 fs.readdir(`./discord_bots/Kitero_harasser/commands`, (err, files) => {
     if (err) console.error(err);
@@ -13,11 +14,11 @@ fs.readdir(`./discord_bots/Kitero_harasser/commands`, (err, files) => {
     if (jsfiles.length <= 0)
         return console.log('No commands found');
     else
-        console.log('jsfiles.length' + ' commands found.');
+        console.log(jsfiles.length + ' Commands found.');
     
     jsfiles.forEach((f, i) => {
         var cmds = require(`./commands/${f}`);
-        console.log(`Command ${f} loading...`);
+        console.log(`Command file ${f} successfully loaded`);
         bot.commands.set(cmds.config.command, cmds);
     })
 });
@@ -42,5 +43,3 @@ bot.on('message', async msg => {
         return;
     }
 });
-
-bot.login(config.token);
