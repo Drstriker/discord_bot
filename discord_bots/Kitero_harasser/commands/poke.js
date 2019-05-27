@@ -1,0 +1,21 @@
+module.exports.run = async(bot, msg, args) => {
+    let logschannel = msg.guild.channels.find(x => x.name === "logs");
+
+    if (msg.content === `!poke ` + msg.mentions.users.first()) {
+        logschannel.send(`${msg.author} sent message :
+        "${msg.author.lastMessage}"
+        IN Channel ${msg.channel}
+        AT [${msg.createdAt}]`);        
+        msg.author.lastMessage.delete();
+        if (msg.content === `!poke <@579990549461729280>`) {
+            msg.channel.send(`${msg.author} POKED ME !!`);
+        }
+        else
+            msg.channel.send(`${msg.author} POKED ` + msg.mentions.users.first() + ` !!`);
+        console.log('Poke command from Command Handler');
+    }
+}
+
+module.exports.config = {
+    command: "poke"
+}

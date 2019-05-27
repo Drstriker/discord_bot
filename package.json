@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start_old": "nodemon discord_bots/Kitero_harasser_old/kitero_harasser.js",
-    "start_new": "nodemon discord_bots/Kitero_harasser_new/kitero_harasser.ts"
+    "start": "nodemon discord_bots/Kitero_harasser/kitero_harasser.js"
   },
   "repository": {
     "type": "git",
@@ -20,14 +19,9 @@
   },
   "homepage": "https://github.com/Drstriker/discord_bot#readme",
   "dependencies": {
-    "discord.js": "^11.5.0",
-    "ffmpeg-binaries": "^4.0.0",
-    "filter-files": "^0.4.0",
-    "opusscript": "0.0.6",
-    "ytdl-core": "^0.29.2"
+    "discord.js": "^11.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.0",
-    "typescript": "^3.4.5"
+    "nodemon": "^1.19.0"
   }
 }

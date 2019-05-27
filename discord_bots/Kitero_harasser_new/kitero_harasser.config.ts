@@ -1,4 +1,0 @@
-export let cnf = {    
-    "token": "NTc5OTkwNTQ5NDYxNzI5Mjgw.XOKO0A.digqlXh6tidP96ZR1_GHEs-AMHk",
-    "prefix": "!"
-}
