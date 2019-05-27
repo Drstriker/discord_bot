@@ -10,13 +10,12 @@ bot.login(config.token);
 fs.readdir(`./discord_bots/Kitero_harasser/commands`, (err, files) => {
     if (err) console.error(err);
 
-    var jsfiles = files.filter(fileName => fileName.split('.').pop() === 'js');
-    if (jsfiles.length <= 0)
+    var cmdfiles = files.filter(fileName => fileName.split('.').pop() === 'js');
+    if (cmdfiles.length <= 0)
         return console.log('No commands found');
     else
-        console.log(jsfiles.length + ' Commands found.');
-    
-    jsfiles.forEach((f, i) => {
+        console.log(cmdfiles.length + ' Commands found.');
+    cmdfiles.forEach((f, i) => {
         var cmds = require(`./commands/${f}`);
         console.log(`Command file ${f} loading...`);
         bot.commands.set(cmds.config.command, cmds);
