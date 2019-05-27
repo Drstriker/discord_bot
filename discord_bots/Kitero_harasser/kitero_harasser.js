@@ -33,15 +33,14 @@ bot.on('message', async msg => {
     let prefix = config.prefix;
     let msgArray = msg.content.split(" ");
     let args = msgArray.slice(1).join(" ");
-
     let content = msg.content.slice(1).split(" ");
     let command = bot.commands.get(content[0]);
+    let isCommand = msg.content.startsWith(prefix);
 
-    if (command && msg.content.startsWith(prefix)) {
+    if (command && isCommand) {
         command.run(bot, msg, args);
         return;
     }
-
 });
 
 bot.login(config.token);
