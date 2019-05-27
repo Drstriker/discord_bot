@@ -1,11 +1,10 @@
 const Discord = require('discord.js');
 
 module.exports.run = async(bot, msg, args) => {
-    //msg.author.lastMessage.delete();
     let boticon = bot.user.displayAvatarURL;
 
     let botembed = new Discord.RichEmbed()
-    .setAuthor("DrStriker")
+    .setAuthor("Bot created by: DrStriker")
     .setColor("#424bf4")
     .setThumbnail(boticon)
     .addField("Bot Name", bot.user.username)

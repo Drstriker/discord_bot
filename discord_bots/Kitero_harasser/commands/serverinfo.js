@@ -10,7 +10,6 @@ module.exports.run = async(bot, msg, args) => {
     .addField("Server Name", msg.guild.name)
     .addField("Created on", msg.guild.createdAt)
     .addField("Total Members", msg.guild.memberCount);
-
     return msg.channel.send(serverembed);
 }
 
