@@ -12,7 +12,6 @@ module.exports.run = async(bot, msg, args) => {
         }
         else
             msg.channel.send(`${msg.author} POKED ` + msg.mentions.users.first() + ` !!`);
-        console.log('Poke command from Command Handler');
     }
 }
 
