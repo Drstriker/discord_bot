@@ -24,6 +24,8 @@ module.exports.run = async(bot, msg, args) => {
             msg.channel.send("Usage: '!report @[user] [reason]'")
         }
     }
+    else
+        msg.channel.send(`Report Channel must be created by Admins`);
     msg.author.lastMessage.delete();
     //msg.delete().catch(O_o=>{});
 }
