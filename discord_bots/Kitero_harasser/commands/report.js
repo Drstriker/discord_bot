@@ -5,23 +5,27 @@ module.exports.run = async(bot, msg, args) => {
     let reason = msg.content.slice(29);
     let reportschannel = msg.guild.channels.find(x => x.name === 'reports');
     //let reason = args.slice(20);
-    if (reason) {
-        let reportEmbed = new Discord.RichEmbed()
-        .setDescription("Report Ticket")
-        .setColor("#ff0000")
-        .addField("Reported User", `${rUser} ID: ${rUser.id}`)
-        .addField("Reported by", `${msg.author} ID: ${msg.author.id}`)
-        .addField("On Channel", msg.channel)
-        .addField("At", msg.createdAt)
-        .addField("Reason", reason);
-        msg.channel.send(`${msg.author} Made a Report Ticket, your ticket will be examined by Admins`);
-        reportschannel.send(reportEmbed);
+    if (reportschannel)
+    {
+        if (reason) {
+            let reportEmbed = new Discord.RichEmbed()
+            .setDescription("Report Ticket")
+            .setColor("#ff0000")
+            .addField("Reported User", `${rUser} ID: ${rUser.id}`)
+            .addField("Reported by", `${msg.author} ID: ${msg.author.id}`)
+            .addField("On Channel", msg.channel)
+            .addField("At", msg.createdAt)
+            .addField("Reason", reason);
+            msg.channel.send(`${msg.author} Made a Report Ticket, your ticket will be examined by Admins`);
+            msg.channel.send(`Abusive uses of reports will be punished`);
+            reportschannel.send(reportEmbed);
+        }
+        else if (!reason || !rUser){
+            msg.channel.send("Usage: '!report @[user] [reason]'")
+        }
     }
-    else if (!reason || !rUser){
-        msg.channel.send("Usage: '!report @[user] [reason]'")
-    }
-    msg.delete().catch(O_o=>{});
-
+    msg.author.lastMessage.delete();
+    //msg.delete().catch(O_o=>{});
 }
 
 module.exports.config = {
