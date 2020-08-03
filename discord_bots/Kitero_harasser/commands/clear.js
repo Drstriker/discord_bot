@@ -1,5 +1,4 @@
 module.exports.run = async(bot, msg, args) => {
-    let default_number = 99;
     let msgArray = msg.content.split(" ");
 
     if (msgArray[1]) {

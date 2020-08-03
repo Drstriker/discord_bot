@@ -9,7 +9,7 @@ module.exports.run = async(bot, msg, args) => {
     .setThumbnail(boticon)
     .addField("Bot Name", bot.user.username)
     .addField("Created on", bot.user.createdAt)
-    .addField("Purpose", `Harass Kitero`);
+    .addField("Goal", `Harass Kitero`);
     return msg.channel.send(botembed);
 }
 
