@@ -69,8 +69,6 @@ msg.channel.send(
 
 Linux                    25 Janvier 1997                        1
 `);
-
-
 msg.channel.send(
 `
 
@@ -90,7 +88,7 @@ ASCII(7)         Manuel de l'administrateur Linux        ASCII(7)
        054   44    2C    ,              154   108   6C    l
        055   45    2D    -              155   109   6D    m
        056   46    2E    .              156   110   6E    n
-       `);
+`);
        msg.channel.send(
 `
        057   47    2F    /              157   111   6F    o
@@ -137,13 +135,11 @@ TRADUCTION
 
 
 Linux                    25 Janvier 1997                        2
-
 `);
-        msg.author.lastMessage.delete();
+       msg.author.lastMessage.delete();
     }
     else {
-        msg.channel.send("!!! You are not an admin of this server !!!");
-
+       msg.channel.send("!!! You are not an admin of this server !!!");
     }
 }
 

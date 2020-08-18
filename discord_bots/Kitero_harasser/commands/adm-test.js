@@ -5,7 +5,6 @@ module.exports.run = async(bot, msg, args) => {
     }
     else {
         msg.channel.send("!!! You are not an admin of this server !!!");
-
     }
 }
 
