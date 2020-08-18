@@ -3,7 +3,6 @@ module.exports.run = async(bot, msg, args) => {
 
     if (msg.mentions.users.first()) {
         if (logschannel) {
-
             logschannel.send(`${msg.author} sent message :
             "${msg.author.lastMessage}"
             IN Channel ${msg.channel}

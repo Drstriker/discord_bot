@@ -1,6 +1,6 @@
 module.exports.run = async(bot, msg, args) => {
 msg.channel.send(
-`\`\`\`fix
+`\`\`\`
 Commands available following '!' :
 
 help - Show Commands help
@@ -13,10 +13,9 @@ report @[user] [reason] - Report a mentionned user
 join - Make the bot join your voice channel
 leave - Make the bot leave your voice channel
 getid @[user] - Get the id of mentionned user
-pm @[user] [message] - Make the bot send a pm to mentionned user
+pm @[user] [message] - Make the bot send a message to mentionned user
 
  - - - More Commands are in development - - -
-
 \`\`\``);
 }
 

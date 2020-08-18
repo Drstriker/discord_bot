@@ -21,7 +21,6 @@ fs.readdir(`./discord_bots/Kitero_harasser/commands`, (err, files) => {
         bot.commands.set(cmds.config.command, cmds);
     })
     console.log('All commands successfully loaded');
-    console.log('Bot is ready to connect');
 });
 
 bot.on('ready', () => {
