@@ -6,6 +6,9 @@ Admin Commands available following '!?' :
 
 adm-help - Show Admin Commands help
 adm-test - Admin Test command
+adm-man_ascii - Display Man Ascii (plz don't use it)
+adm-ma - Mute All users in user's voice channel
+adm-uma - Unmute All users in user's voice channel
 
 example of use: "!?adm-test"
 
