@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports.run = async(bot, msg, args) => {
     let boticon = bot.user.displayAvatarURL;
 
